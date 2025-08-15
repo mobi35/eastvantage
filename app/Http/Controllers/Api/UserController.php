@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class UserController extends Controller
 
             return response()->json([
                 'success' => true,
-                'data' => User::with('roles')->get()
+                'data' => UserResource::collection(User::with('roles')->orderByDesc('created_at')->get())
             ]);
 
         } catch (\Exception $e) {

@@ -7,6 +7,10 @@ Route::get('/', function () {
     return Inertia::render('index');
 })->name('home');
 
+Route::get('/create-user', function () {
+    return Inertia::render('createUser');
+})->name('createUser');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');

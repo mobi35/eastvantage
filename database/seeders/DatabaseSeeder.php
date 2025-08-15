@@ -16,11 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         Role::factory()->create([
           'name' => 'Author',
         ]);
@@ -29,12 +24,18 @@ class DatabaseSeeder extends Seeder
           'name' => 'Editor',
         ]);
 
-        Role::factory()->create([
+        $subscriber = Role::factory()->create([
           'name' => 'Subscriber',
         ]);
 
         Role::factory()->create([
           'name' => 'Administrator',
         ]);
+
+        $user = User::factory()->create([
+            'email' => 'test@example.com',
+        ]);
+
+        $user->roles()->sync([$subscriber->id]);
     }
 }
