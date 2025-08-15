@@ -10,7 +10,7 @@ Run the following commands
 
 `./vendor/bin/sail up -d`
 
-`./vendor/bin/sail artisan migrate -seed`
+`./vendor/bin/sail artisan migrate --seed`
 
 `./vendor/bin/sail npm i`
 
