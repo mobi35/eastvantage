@@ -2,7 +2,11 @@
 
 Make sure you have php version 8+
 
+Run the following commands
+
 `composer install`
+
+`cp .env.example .env`
 
 `./vendor/bin/sail up -d`
 
